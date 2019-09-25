@@ -107,5 +107,15 @@ module.exports = {
             })  
         }
         
+    },
+    getSliderList(callback){
+        let sql = 'select value from options where id = 10'
+        conn.query(sql,(err,results) =>{
+            if(err){
+                callback(err)
+            }else{
+                callback(null,results[0].value)
+            }
+        })
     }
 }

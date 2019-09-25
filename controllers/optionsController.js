@@ -91,5 +91,22 @@ module.exports = {
                 })
             }
         })
+    },
+    getSliderList(req, res) {
+        optionsModel.getSliderList((err, data) => {
+            if (err) {
+                console.log(err)
+                res.json({
+                    code: 400,
+                    msg: '获取数据失败'
+                })
+            } else {
+                res.json({
+                    code: 200,
+                    msg: '获取数据成功',
+                    data: JSON.parse(data)
+                })
+            }
+        })
     }
 }

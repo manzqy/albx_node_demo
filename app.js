@@ -35,6 +35,19 @@ app.set('view engine', 'ejs')
 // ejs会默认查找views正面的文件做为模板文件,我们这个配置只是想告诉他它所需要的Views目录就是我们当前所设置的views目录
 app.set('views', 'views')
 
+// 设置跨域请求
+app.use((req,res,next) => {
+    // res.writeHead()
+    // 设置允许那些源可以跨域请求,*代表所有源
+    res.header('Access-Control-Allow-Origin',"*")
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    // 允许传递证书---允许传递cookie
+    res.header("Access-Control-Allow-Credentials","true");
+    // 继续下一个处理
+    next()
+})
+
 
 // 添加全局路由中间件，当app每次接收到请求的时候都会触发这个中间件
 app.use(function (req, res, next) {
