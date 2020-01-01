@@ -1,3 +1,2 @@
 # Baixiu pages
-# albx_37
-多思考
+# albx node 小项目
